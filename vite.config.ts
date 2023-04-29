@@ -11,7 +11,7 @@ async function getHttpsOptions() {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig(async () => ({
+export default defineConfig(async ({mode}) => ({
   plugins: [react(), eslint(), officeAddin({
     devUrl: "https://localhost:3000",
     prodUrl: "https://www.contoso.com/" // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
@@ -24,5 +24,5 @@ export default defineConfig(async () => ({
       },
     }
   },
-  server: { https: await getHttpsOptions() }
+  server: mode !== "production" ? { https: await getHttpsOptions() } : {}
 }));
