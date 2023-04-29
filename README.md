@@ -11,6 +11,7 @@ These are the key differences between this template and the default generated te
 - Use Vite instead of Webpack.
 - Use React 18.
 - Remove polyfills and support for IE 11.
+- Enabled typescript strict mode
 
 ## Usage
 

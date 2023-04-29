@@ -12,7 +12,7 @@ let isOfficeInitialized = false;
 
 const title = "Contoso Task Pane Add-in";
 
-const render = (Component) => {
+const render = (Component: typeof App) => {
   createRoot(document.getElementById("container") as HTMLElement).render(
     <React.StrictMode>
       <ThemeProvider>

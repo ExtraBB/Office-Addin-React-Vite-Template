@@ -17,7 +17,7 @@ export interface AppState {
 }
 
 export default class App extends React.Component<AppProps, AppState> {
-  constructor(props, context) {
+  constructor(props: AppProps, context: AppState) {
     super(props, context);
     this.state = {
       listItems: [],
