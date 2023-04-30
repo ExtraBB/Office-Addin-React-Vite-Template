@@ -14,15 +14,18 @@ async function getHttpsOptions() {
 export default defineConfig(async ({mode}) => ({
   plugins: [react(), eslint(), officeAddin({
     devUrl: "https://localhost:3000",
-    prodUrl: "https://www.contoso.com/" // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
+    prodUrl: "https://www.contoso.com" // CHANGE THIS TO YOUR PRODUCTION DEPLOYMENT LOCATION
   })],
+  root: "src",
   build: {
     rollupOptions: {
       input: {
-        "taskpane": "taskpane.html",
-        "commands": "commands.html",
+        "taskpane": "/taskpane/taskpane.html",
+        "commands": "/commands/commands.html",
       },
-    }
+    },
+    outDir: "../dist",
+    emptyOutDir: true
   },
   server: mode !== "production" ? { https: await getHttpsOptions() } : {}
 }));
